@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+	  <title>Register</title>
+	   <link href= "../static/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1>Create account</h1>
+      <form class="form" method="POST" action="/register">
+        <table>
+          <tr>
+            <td class="title">
+              <label for="name">Username:</label>
+            </td>
+            <td class="field">
+	             <input type="text" name="username" placeholder="Create username" maxlength="25">
+	          </td>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+            <td class="title">
+	             <label for="password1">Password:</label>
+            </td>
+            <td class="field">
+	             <input type="password" name="password1" placeholder="Create password">
+            </td>
+          </tr>
+          <tr>
+            <td class="title">
+	             <label for="password2"></label>
+            </td>
+            <td class="field">
+	             <input type="password" name="password2" placeholder="Repeat password">
+            </td>
+          </tr>
+          <tr>
+            <td class="title"></td>
+            <td class="field">
+	             <input id="id_button1" type="submit" class="btn" value="Sign up">
+            </td>
+      </table>
+    </form>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}" role="alert">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <br></br>
+  <a href="{{ url_for('index') }}" class="but"><button class="but" id="id_button2">Main page</button></a>
+  </body>
+</html>

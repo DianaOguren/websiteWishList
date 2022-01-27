@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Wishlist</title>
+	<link rel="stylesheet" href="../static/style_wishlist.css">
+  </head>
+  <body>
+    <h1>Wishlist</h1>
+    <div class="button_one">
+        <a href="{{ url_for('index') }}" class="but"><button class="but" id="id_button1">Main page</button></a>
+    </div>
+    <div class="button_two">
+        <a href="{{ url_for('auth') }}" class="but"><button class="but" id="id_button2" >{{go_back_link}}</button></a>
+    </div>
+
+    <figure>
+        <img src="{{photo}}" alt="avatar" class="avatar">
+        <figcaption>{{owner}}</figcaption>
+    </figure>
+
+    <div class="wrapper">
+            <div class="div">
+                <p class="name">Wishlist id</p>
+                <p class="text">{{id}}</p>
+            </div>
+
+            <div class="div">
+                <p class="name">Wishlist title</p>
+                <p class="text">{{title}}</p>
+            </div>
+    </div>
+
+    <div class="description">
+            <p class="name">Description</p>
+            <p>{{description}}</p>
+    </div>
+
+    <div class="items_wrap">
+        <p id="title">ITEMS</p>
+        <!-- <form method="POST" action="/wishlist/{{id}}"> -->
+        <div class="items">
+            {% for dict_item in items %}
+                <div class="item" id="item1">
+                    <p>{{dict_item['title']}}</p>
+                    <img src="../{{dict_item['picture']}}" alt="" class="img_item">
+                    <p>{{dict_item['description']}}</p>
+                    <p><a href="{{dict_item['link']}}">Link to shop website</a></p>
+                    <p>Date of creation: {{ dict_item['date'] }}</p>
+                    <!-- <input type="checkbox" name="flag[]" value="1">  -->
+                </div>
+            {% endfor %}
+        </div>
+        <!-- <p><input type="submit" value="Save"></p> -->
+        <!-- </form>-->
+    </div>
+  </body>
+</html>
